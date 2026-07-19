@@ -1,0 +1,106 @@
+# ═══════════════════════════════════════════════════════════
+# MediReach — Git Ignore Rules
+# ═══════════════════════════════════════════════════════════
+
+# === Environment & Secrets ===
+.env
+.env.local
+.env.production
+*.pem
+*.key
+
+# === Python ===
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+*.egg
+dist/
+build/
+eggs/
+*.whl
+pip-wheel-metadata/
+*.manifest
+*.spec
+
+# === Virtual Environments ===
+venv/
+.venv/
+env/
+ENV/
+
+# === IDE ===
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.settings/
+
+# === ML Models & Artifacts ===
+models/rl/*.zip
+models/rl/*.pkl
+models/cv/*.pt
+models/cv/*.onnx
+models/cv/*.tflite
+models/cv/*.engine
+!models/rl/.gitkeep
+!models/cv/.gitkeep
+
+# === Training Logs ===
+logs/
+runs/
+wandb/
+mlruns/
+*.tensorboard
+
+# === Data (large files) ===
+data/landing_zones/train/*.jpg
+data/landing_zones/train/*.png
+data/landing_zones/val/*.jpg
+data/landing_zones/val/*.png
+data/landing_zones/test/*.jpg
+data/landing_zones/test/*.png
+data/landing_zones/train/*.txt
+data/landing_zones/val/*.txt
+data/landing_zones/test/*.txt
+!data/landing_zones/train/.gitkeep
+!data/landing_zones/val/.gitkeep
+!data/landing_zones/test/.gitkeep
+
+# === Database ===
+*.db
+*.sqlite
+*.sqlite3
+instance/
+
+# === Docker ===
+docker-compose.override.yml
+
+# === OS Files ===
+.DS_Store
+Thumbs.db
+desktop.ini
+*.lnk
+
+# === Jupyter Notebooks ===
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# === Coverage & Testing ===
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+*.cover
+.pytest_cache/
+.mypy_cache/
+
+# === Temporary Files ===
+tmp/
+temp/
+*.tmp
+*.bak
+*.log
