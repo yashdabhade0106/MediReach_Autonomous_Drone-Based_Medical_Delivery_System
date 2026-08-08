@@ -8,8 +8,8 @@ from datetime import datetime, timezone
 import uuid
 
 # Set environment variable to avoid model loading errors if weights don't exist
-os.environ["RL_MODEL_PATH"] = "dummy_path.zip"
-os.environ["YOLO_MODEL_PATH"] = "dummy_path.pt"
+os.environ["RL_MODEL_PATH"] = "models/rl/best_model.zip"
+os.environ["YOLO_MODEL_PATH"] = "models/cv/landing_model.pt"
 
 # Mock Team A endpoint
 MOCK_API_URL = "http://localhost:5001"

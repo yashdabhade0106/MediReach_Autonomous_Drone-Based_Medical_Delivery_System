@@ -9,6 +9,8 @@ app = Flask(__name__)
 # Config
 MOCK_API_URL = "http://localhost:5001"
 
+from src.hardware.hardware_manager import hw_manager
+
 current_drone_state = {
     "drone_id": "drone-01",
     "status": "idle",
