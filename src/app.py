@@ -40,5 +40,17 @@ def dispatch_drone():
         data = request.json
         order = OrderPayload(**data)
         
-        current_drone_state["current_mission"] = order.dict()
+        current_drone_state["current_mission"] = order.model_dump() if hasattr(order, 'model_dump') else order.dict()
         current_drone_state["battery"] = 100.0 # reset for new flight
+        
+        send_status_webhook("dispatched", "Drone is taking off")
+        return jsonify({"status": "success", "message": "Mission started"})
+    except ValidationError as e:
+        return jsonify({"status": "error", "message": "Invalid order payload", "details": e.errors()}), 400
+
+@app.route('/drone/status', methods=['GET'])
+def get_drone_status():
+    return jsonify(current_drone_state)
+
+if __name__ == '__main__':
+    app.run(port=5000, debug=True)
